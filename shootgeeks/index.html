@@ -1,0 +1,1820 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./styles.css" rel="stylesheet">
+  <link href="../src/navbar.css" rel="stylesheet">
+  <link href="../src/home.css" rel="stylesheet">
+  <link href="../src/services.css" rel="stylesheet">
+  <link href="../src/portfolio.css" rel="stylesheet">
+  <link href="../src/booking.css" rel="stylesheet">
+  <link href="../src/about.css" rel="stylesheet">
+  <link href="../src/chatbot.css" rel="stylesheet">
+  <link href="../src/footer.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+    integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body class="overflow-x-hidden bg-background text-text-primary">
+  <header class="flex flex-row items-center justify-between p-5 px-4 sm:px-10 bg-background relative">
+    <div>
+      <div class="text-[36px] font-bold leading-none">
+        Shoot<span class="text-primary">geeks</span>
+      </div>
+      <div class="text-[12px] font-light text-text-muted mt-0">powered by geekcos</div>
+    </div>
+    <button id="menu-toggle" type="button"
+      class="min-[1145px]:hidden p-2 text-2xl text-text-primary hover:text-primary transition-colors"
+      aria-label="Toggle menu">
+      <i class="ri-menu-line" id="menu-icon"></i>
+    </button>
+    <nav id="nav-menu"
+      class="max-[1144px]:hidden flex flex-col items-center min-[1145px]:flex-row min-[1145px]:flex-wrap min-[1145px]:justify-between min-[1145px]:items-center gap-4 min-[1145px]:gap-10 absolute min-[1145px]:static top-full left-0 right-0 min-[1145px]:top-auto min-[1145px]:left-auto min-[1145px]:right-auto bg-background min-[1145px]:bg-transparent py-4 min-[1145px]:py-0 px-4 min-[1145px]:px-0 shadow-lg min-[1145px]:shadow-none z-50 border-t min-[1145px]:border-t-0 border-border">
+      <ul
+        class="flex flex-col items-center min-[1145px]:flex-row min-[1145px]:flex-wrap min-[1145px]:justify-between gap-4 min-[1145px]:gap-10 pt-2">
+        <li data-tab-target="#main">Home</li>
+        <li data-tab-target="#services">Services</li>
+        <li data-tab-target="#about">About Us</li>
+        <li data-tab-target="#portfolio">Portfolio</li>
+        <li data-tab-target="#booking">Booking</li>
+      </ul>
+      <button class="buttons w-auto text-center ml-0 min-[1145px]:ml-10"
+        onclick="document.getElementById('site-footer').scrollIntoView({ behavior: 'smooth' })">Contact Us</button>
+    </nav>
+  </header>
+
+  <div class="home" data-tab-content="main" id="main">
+    <!-- ===== FEATURED PHOTOS CAROUSEL ===== -->
+    <section class="featured-section">
+      <div class="featured-content">
+        <h1 class="featured-heading">Capturing Moments, Creating Memories</h1>
+        <p class="featured-desc">At Shootgeeks, we specialize in turning your special moments into timeless memories.
+          Whether it's a wedding, a family portrait, or a corporate event, our team of professional photographers is
+          dedicated to capturing the essence of your story with creativity and precision.</p>
+        <button class="buttons" onclick="switchTab('#booking')">Book a Session</button>
+      </div>
+
+      <div class="featured-carousel-wrapper">
+        <div class="featured-carousel" id="featured-carousel">
+          <!-- Cards injected by JS from Cloudinary -->
+        </div>
+        <div class="featured-nav">
+          <button class="featured-nav-btn" id="featured-prev" aria-label="Previous slide">
+            <i class="ri-arrow-left-s-line"></i>
+          </button>
+          <button class="featured-nav-btn" id="featured-next" aria-label="Next slide">
+            <i class="ri-arrow-right-s-line"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div
+      class="flex flex-col lg:flex-row bg-primary-soft min-h-0 p-6 sm:p-12 md:p-20 lg:p-40 items-center gap-8 sm:gap-12 lg:gap-20">
+      <div class="w-full max-w-xl text-center lg:text-left">
+        <h3 class="text-[20px] bg-primary-soft max-w-xs p-2 rounded-3xl text-center mx-auto lg:mx-0"><i
+            class="ri-camera-4-fill"></i>
+          Professional Photography</h3>
+        <h2 class="headings">Moments You'll <br><span class="text-primary-hover">Remember</span> <br>Forever</h2>
+        <p class="text-text-muted">Every laugh, every tear, every moment of joy captured with precision and care lives
+          on.</p>
+      </div>
+
+      <div class="polaroid-grid" id="polaroid-grid">
+        <div class="polaroid-frame" style="--rotate: -8deg; --hover-rotate: 0deg;">
+          <div class="polaroid-img-wrapper">
+            <img src="" alt="Portrait photo 1" loading="lazy">
+          </div>
+          <div class="polaroid-caption">Portrait</div>
+        </div>
+        <div class="polaroid-frame" style="--rotate: 5deg; --hover-rotate: 0deg;">
+          <div class="polaroid-img-wrapper">
+            <img src="" alt="Portrait photo 2" loading="lazy">
+          </div>
+          <div class="polaroid-caption">Portrait</div>
+        </div>
+        <div class="polaroid-frame" style="--rotate: -4deg; --hover-rotate: 0deg;">
+          <div class="polaroid-img-wrapper">
+            <img src="" alt="Portrait photo 3" loading="lazy">
+          </div>
+          <div class="polaroid-caption">Portrait</div>
+        </div>
+        <div class="polaroid-frame" style="--rotate: 7deg; --hover-rotate: 0deg;">
+          <div class="polaroid-img-wrapper">
+            <img src="" alt="Portrait photo 4" loading="lazy">
+          </div>
+          <div class="polaroid-caption">Portrait</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-surface min-h-0 py-12 sm:py-16 p-6 sm:p-10">
+      <h2 class="text-center headings">Why Choose Us?</h2>
+
+      <div
+        class="grid grid-cols-1 sm:grid-cols-3 gap-8 sm:gap-10 justify-center text-center mt-10 sm:mt-20 max-w-5xl mx-auto">
+        <div>
+          <i class="ri-camera-line icons"></i>
+          <div class="boxes">
+            <h3 class="tags">Professional Photos</h3>
+            <p class="desc">High-quality photography with state-of-the-art-equipment</p>
+          </div>
+        </div>
+        <div>
+          <i class="ri-video-on-line icons"></i>
+          <div class="boxes">
+            <h3 class="tags">Cinematic Videos</h3>
+            <p class="desc">Expert videography with cinematic storytelling</p>
+          </div>
+        </div>
+        <div>
+          <i class="ri-award-line icons"></i>
+          <div class="boxes">
+            <h3 class="tags">10+ Years of Experience</h3>
+            <p class="desc">Trusted by clients for over a decade of excellence</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bg-primary-soft py-12 sm:py-16 px-6 sm:px-10">
+      <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-[1.2fr_2fr] gap-10 items-center">
+        <!-- Left: names list -->
+        <div class="space-y-6 text-center md:text-left">
+          <h2 class="text-2xl sm:text-3xl md:text-4xl font-bold text-text-primary">Meet Your Photographers</h2>
+          <p class="text-text-muted text-sm sm:text-base">
+            Photographers and Videographers of Shootgeeks
+          </p>
+
+          <ul id="photographer-names" class="space-y-3 text-lg sm:text-xl font-semibold">
+            <li class="js-photographer-name text-gray-400 cursor-pointer transition-colors">
+              Jezreel
+            </li>
+            <li class="js-photographer-name text-gray-400 cursor-pointer transition-colors">
+              Humprey
+            </li>
+            <li class="js-photographer-name text-gray-400 cursor-pointer transition-colors">
+              Elybert
+            </li>
+            <li class="js-photographer-name text-gray-400 cursor-pointer transition-colors">
+              John Keenan
+            </li>
+            <li class="js-photographer-name text-gray-400 cursor-pointer transition-colors">
+              Jeffrey
+            </li>
+          </ul>
+        </div>
+
+        <!-- Right: feature card -->
+        <div class="bg-card rounded-3xl px-6 py-8 sm:px-8 sm:py-10 shadow-lg flex flex-col justify-between h-full">
+          <div>
+            <h3 id="photographer-title" class="text-base sm:text-lg font-semibold text-text-primary">
+              Professional Photography and Videography You Can Trust
+            </h3>
+
+            <div class="relative mt-6 mb-8">
+              <!-- Main rectangle image -->
+              <img id="photographer-photo-main" src="../resources/photos/random1.jpg" alt="Wilfredo Pansacola"
+                class="w-full aspect-video object-cover rounded-3xl bg-gray-100" />
+
+              <!-- Circular profile icon -->
+              <div id="photographer-photo-profile"
+                class="absolute -bottom-5 right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-white shadow-md bg-primary flex items-center justify-center">
+                <i class="ri-user-fill text-text-primary text-lg sm:text-xl"></i>
+              </div>
+            </div>
+          </div>
+
+          <p id="photographer-caption" class="text-sm sm:text-base text-text-primary">
+            Showcasing every project with creativity and passion.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="bg-surface min-h-0 py-12 sm:py-16 p-6 sm:p-10">
+      <h2 class="text-center headings">Services</h2>
+      <p class="text-center pt-5 desc">We offer professional services tailored for events, brands, and personal projects
+      </p>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10 justify-center text-center mt-10 sm:mt-20 max-w-5xl mx-auto">
+        <div class="boxes">
+          <i class="ri-camera-lens-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Event Photography</h3>
+          <p class="text-text-muted text-sm">Professional photo coverage for weddings, birthdays, corporate events, and
+            more.</p>
+        </div>
+        <div class="boxes">
+          <i class="ri-vidicon-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Videography</h3>
+          <p class="text-text-muted text-sm">Full event video documentation from start to finish, capturing every
+            moment.</p>
+        </div>
+        <div class="boxes">
+          <i class="ri-film-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Cinematic Films</h3>
+          <p class="text-text-muted text-sm">Movie-quality highlight reels with creative editing, color grading, and
+            music.</p>
+        </div>
+        <div class="boxes">
+          <i class="ri-speed-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Same-Day Edit</h3>
+          <p class="text-text-muted text-sm">A highlight video edited and presented on the same day of your event.</p>
+        </div>
+        <div class="boxes">
+          <i class="ri-brush-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Photo Editing & Retouching</h3>
+          <p class="text-text-muted text-sm">Professional post-processing, color correction, and retouching to make
+            every shot picture-perfect.</p>
+        </div>
+        <div class="boxes">
+          <i class="ri-flight-takeoff-fill text-3xl text-primary-hover mb-3"></i>
+          <h3 class="text-lg font-bold text-text-primary mb-1">Drone Coverage</h3>
+          <p class="text-text-muted text-sm">Stunning aerial shots and videos for a breathtaking perspective of your
+            event.</p>
+        </div>
+      </div>
+      <div class="text-center p-10">
+        <button class="buttons" onclick="switchTab('#services')">View our full services</button>
+      </div>
+    </div>
+  </div>
+
+
+  <div data-tab-content="services" id="services">
+    <!-- ===== SECTION 1: HERO ===== -->
+    <section class="bg-primary-soft py-20 sm:py-28 px-6 text-center">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-text-primary mb-4">Our Services</h1>
+      <p class="text-text-muted text-base sm:text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
+        Professional event photography and videography services to preserve your memories forever
+      </p>
+    </section>
+
+    <!-- ===== SECTION 2: EVENT COVERAGE ===== -->
+    <section class="bg-surface py-16 sm:py-20 px-6 sm:px-10">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-text-primary mb-3">Event Coverage</h2>
+      <p class="text-center text-text-muted mb-12">Click on a category to view the gallery</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
+        <!-- Wedding Card -->
+        <div class="event-card relative rounded-2xl overflow-hidden cursor-pointer group shadow-lg aspect-[4/3]"
+          onclick="openGallery('wedding')">
+          <img id="event-card-img-wedding"
+            src="https://images.unsplash.com/photo-1519741497674-611481863552?w=600&h=450&fit=crop"
+            alt="Wedding Photography" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="event-card-overlay absolute inset-0"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h3 class="text-white text-xl font-bold">Wedding</h3>
+          </div>
+        </div>
+
+        <!-- Corporate Events Card -->
+        <div class="event-card relative rounded-2xl overflow-hidden cursor-pointer group shadow-lg aspect-[4/3]"
+          onclick="openGallery('corporate')">
+          <img id="event-card-img-corporate"
+            src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&h=450&fit=crop"
+            alt="Corporate Events Photography"
+            class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="event-card-overlay absolute inset-0"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h3 class="text-white text-xl font-bold">Corporate Events</h3>
+          </div>
+        </div>
+
+        <!-- Birthday Card -->
+        <div class="event-card relative rounded-2xl overflow-hidden cursor-pointer group shadow-lg aspect-[4/3]"
+          onclick="openGallery('birthday')">
+          <img id="event-card-img-birthday"
+            src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=600&h=450&fit=crop"
+            alt="Birthday Photography" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="event-card-overlay absolute inset-0"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h3 class="text-white text-xl font-bold">Birthday</h3>
+          </div>
+        </div>
+
+        <!-- Portrait Card -->
+        <div class="event-card relative rounded-2xl overflow-hidden cursor-pointer group shadow-lg aspect-[4/3]"
+          onclick="openGallery('portrait')">
+          <img id="event-card-img-portrait"
+            src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&h=450&fit=crop"
+            alt="Portrait Photography" class="w-full h-full object-cover transition duration-500 group-hover:scale-110">
+          <div class="event-card-overlay absolute inset-0"></div>
+          <div class="absolute bottom-0 left-0 right-0 p-4">
+            <h3 class="text-white text-xl font-bold">Portrait</h3>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+        <button onclick="switchTab('#portfolio')" class="mt-10 buttons">
+          View Portfolio
+        </button>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: PACKAGES ===== -->
+    <section class="bg-primary-soft py-16 sm:py-20 px-6 sm:px-10">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-text-primary mb-3">Packages</h2>
+      <p class="text-center text-text-muted mb-12">Choose the package that best fits your event needs</p>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6 max-w-6xl mx-auto">
+        <!-- Elite Lite -->
+        <div class="package-card bg-surface rounded-2xl shadow-md p-8 cursor-pointer flex flex-col"
+          onclick="openPackage(0)">
+          <h3 class="text-2xl font-bold text-text-primary mb-3">Elite Lite</h3>
+          <p class="text-text-muted text-sm flex-1 mb-4">
+            Full HD cinematic video highlights, 1 photographer, 1 videographer, enhanced photos, and full video
+            documentation.
+          </p>
+          <p class="text-primary-hover text-2xl font-bold">Php 25,000</p>
+        </div>
+
+        <!-- Royale Lite -->
+        <div class="package-card bg-surface rounded-2xl shadow-md p-8 cursor-pointer flex flex-col"
+          onclick="openPackage(1)">
+          <h3 class="text-2xl font-bold text-text-primary mb-3">Royale Lite</h3>
+          <p class="text-text-muted text-sm flex-1 mb-4">
+            Cinematic SDE, wedding day coverage, 1 photographer, 2 videographers, prenuptial photoshoot, and AVP
+            presentation.
+          </p>
+          <p class="text-primary-hover text-2xl font-bold">Php 39,999</p>
+        </div>
+
+        <!-- Summit Lite -->
+        <div class="package-card bg-surface rounded-2xl shadow-md p-8 cursor-pointer flex flex-col"
+          onclick="openPackage(2)">
+          <h3 class="text-2xl font-bold text-text-primary mb-3">Summit Lite</h3>
+          <p class="text-text-muted text-sm flex-1 mb-4">
+            Cinematic SDE, wedding day coverage, 20-page hard bound album, prenuptial photoshoot, and AVP presentation.
+          </p>
+          <p class="text-primary-hover text-2xl font-bold">Php 44,999</p>
+        </div>
+
+        <!-- Summit Premium -->
+        <div
+          class="package-card bg-surface rounded-2xl shadow-md p-8 cursor-pointer flex flex-col border-2 border-primary relative"
+          onclick="openPackage(3)">
+          <span
+            class="absolute -top-3 left-1/2 -translate-x-1/2 bg-primary text-text-primary text-xs font-bold px-4 py-1 rounded-full">POPULAR</span>
+          <h3 class="text-2xl font-bold text-text-primary mb-3">Summit Premium</h3>
+          <p class="text-text-muted text-sm flex-1 mb-4">
+            Full SDE, 2 photographers, 2 videographers, 40-page album, drone shots, save the date video, and prenuptial
+            shoot.
+          </p>
+          <p class="text-primary-hover text-2xl font-bold">Php 54,999</p>
+        </div>
+
+        <!-- Paramount -->
+        <div class="package-card bg-surface rounded-2xl shadow-md p-8 cursor-pointer flex flex-col"
+          onclick="openPackage(4)">
+          <h3 class="text-2xl font-bold text-text-primary mb-3">Paramount</h3>
+          <p class="text-text-muted text-sm flex-1 mb-4">
+            SDE by Ernesto Dadula, 3 photographers, 3 videographers, 40-page album, drone shots, pre-wedding film, and
+            1TB hard drive.
+          </p>
+          <p class="text-primary-hover text-2xl font-bold">Php 100,000</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== GALLERY MODAL (LIGHTBOX) ===== -->
+  <div id="gallery-modal" class="modal-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div class="modal-content relative w-full max-w-4xl flex flex-col items-center">
+      <!-- Close Button -->
+      <button onclick="closeGallery()"
+        class="absolute -top-2 -right-2 sm:top-0 sm:right-0 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition cursor-pointer"
+        aria-label="Close gallery">
+        <i class="ri-close-line"></i>
+      </button>
+
+      <!-- Image Container -->
+      <div class="relative w-full flex items-center justify-center">
+        <!-- Left Arrow -->
+        <button onclick="prevImage()"
+          class="gallery-arrow absolute left-2 sm:left-4 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 text-white text-xl sm:text-2xl cursor-pointer"
+          aria-label="Previous image">
+          <i class="ri-arrow-left-s-line"></i>
+        </button>
+
+        <!-- Main Image -->
+        <img id="gallery-image" src="" alt="Gallery Image"
+          class="gallery-main-img max-h-[70vh] w-auto max-w-full rounded-xl object-contain shadow-2xl">
+
+        <!-- Right Arrow -->
+        <button onclick="nextImage()"
+          class="gallery-arrow absolute right-2 sm:right-4 z-10 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-white/10 text-white text-xl sm:text-2xl cursor-pointer"
+          aria-label="Next image">
+          <i class="ri-arrow-right-s-line"></i>
+        </button>
+      </div>
+
+      <!-- Image Counter -->
+      <p id="gallery-counter" class="text-white/70 text-sm mt-4"></p>
+
+      <!-- View Portfolio Button -->
+
+    </div>
+  </div>
+
+  <!-- ===== PACKAGE MODAL ===== -->
+  <div id="package-modal" class="modal-overlay fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div
+      class="modal-content bg-surface rounded-2xl shadow-2xl w-full max-w-lg max-h-[90vh] overflow-y-auto modal-scroll">
+      <!-- Modal Header -->
+      <div class="flex items-center justify-between px-6 pt-6 pb-2">
+        <h3 id="pkg-modal-title" class="text-2xl font-bold text-text-primary"></h3>
+        <button onclick="closePackage()"
+          class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-card text-text-primary text-xl transition cursor-pointer"
+          aria-label="Close package details">
+          <i class="ri-close-line"></i>
+        </button>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="px-6 pb-6">
+        <p id="pkg-modal-desc" class="text-text-muted text-sm leading-relaxed mt-2 mb-5"></p>
+
+        <h4 class="text-sm font-bold text-text-primary uppercase tracking-wide mb-3">What's Included</h4>
+        <ul id="pkg-modal-inclusions" class="space-y-2 mb-6"></ul>
+
+        <div class="flex items-center justify-between border-t border-border pt-5">
+          <div>
+            <p class="text-xs text-text-muted uppercase tracking-wide">Starting at</p>
+            <p id="pkg-modal-price" class="text-3xl font-bold text-primary-hover"></p>
+          </div>
+          <button class="buttons" onclick="bookFromServices()">Book</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-tab-content="about" id="about">
+
+    <!-- ===== SECTION 1: OUR STORY ===== -->
+    <section class="bg-accent-blue py-16 sm:py-20 px-6 sm:px-10">
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center featured-heading mb-12">About Us</h1>
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        <div class="text-center md:text-left">
+          <h2 class="text-2xl sm:text-3xl font-bold featured-desc mb-4">Our Story</h2>
+          <p class="featured-desc leading-relaxed text-sm sm:text-base">
+            Shootgeeks photography and videography is a team that renders services for
+            commercial and non-commercial use. Businesses, schools and any establishments need photographs
+            and/or videos to promote and advertise their products and for whatever purpose they intend, and so as
+            families need
+            photographers to capture the special moments of their lives. Families of professionals are busy, and if too
+            much time goes by
+            between photos, these moments are lost forever. Weddings, Christenings, Dedications, and Birthdays are only
+            a few of those life
+            events that we may treasure and keep by having it captured.
+          </p>
+        </div>
+        <div class="flex justify-center">
+          <img src="https://images.unsplash.com/photo-1516035069371-29a1b244cc32?w=500&h=400&fit=crop"
+            alt="Professional camera" class="rounded-2xl shadow-lg w-full max-w-md object-cover aspect-[5/4]">
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: OUR VALUES ===== -->
+    <section class="bg-surface py-16 sm:py-20 px-6 sm:px-10">
+      <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-center text-text-primary mb-12">Our Values</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto text-center">
+        <!-- Excellence -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="about-value-icon">
+            <i class="ri-award-fill text-3xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-text-primary">Excellence</h3>
+          <p class="text-text-muted text-sm">We strive for perfection in every shot and video we produce</p>
+        </div>
+        <!-- Creativity -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="about-value-icon">
+            <i class="ri-lightbulb-fill text-3xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-text-primary">Creativity</h3>
+          <p class="text-text-muted text-sm">Working closely with clients to bring their vision to life</p>
+        </div>
+        <!-- Collaboration -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="about-value-icon">
+            <i class="ri-team-fill text-3xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-text-primary">Collaboration</h3>
+          <p class="text-text-muted text-sm">Bringing fresh, innovative approaches to every project</p>
+        </div>
+        <!-- Passion -->
+        <div class="flex flex-col items-center gap-3">
+          <div class="about-value-icon">
+            <i class="ri-heart-3-fill text-3xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-text-primary">Passion</h3>
+          <p class="text-text-muted text-sm">Genuine love for what we do shines through in our work</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: REVIEWS ===== -->
+    <section class="bg-primary-soft py-16 sm:py-20 px-6 sm:px-10">
+      <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl sm:text-3xl font-bold text-text-primary mb-2">
+          <i class="ri-star-fill text-yellow-400"></i> Reviews
+        </h2>
+
+        <!-- Star Filter Bar -->
+        <div class="flex flex-wrap items-center gap-2 mb-8 mt-4" id="about-star-filters">
+          <span class="text-xs font-semibold text-text-muted uppercase tracking-wider mr-1">
+            <i class="ri-filter-3-line"></i> Filter by Stars
+          </span>
+          <button class="about-filter-pill active" data-filter="all">All</button>
+          <button class="about-filter-pill" data-filter="5">5 <i class="ri-star-fill text-yellow-400"></i></button>
+          <button class="about-filter-pill" data-filter="4">4 <i class="ri-star-fill text-yellow-400"></i></button>
+          <button class="about-filter-pill" data-filter="3">3 <i class="ri-star-fill text-yellow-400"></i></button>
+          <button class="about-filter-pill" data-filter="2">2 <i class="ri-star-fill text-yellow-400"></i></button>
+          <button class="about-filter-pill" data-filter="1">1 <i class="ri-star-fill text-yellow-400"></i></button>
+        </div>
+
+        <!-- Review Cards Grid -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6" id="about-reviews-grid">
+          <!-- Review 1 -->
+          <div class="about-review-card" data-stars="5">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                TC</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Toyota Celica</h4>
+                <p class="text-text-muted text-xs">Birthday Debut</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              We hired this team for our daughter's birthday celebration, and they absolutely nailed it. They captured
+              every special moment without being intrusive, and the final photos and video were vibrant and full of
+              life.
+              Their professionalism and friendly energy made everyone feel comfortable. We couldn't be happier with
+              how beautifully the memories were preserved.
+            </p>
+          </div>
+
+          <!-- Review 2 -->
+          <div class="about-review-card" data-stars="5">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                MR</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Maria Reyes</h4>
+                <p class="text-text-muted text-xs">Wedding</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Shootgeeks made our wedding day unforgettable! The team captured every smile, tear, and joyful dance.
+              The cinematic highlight reel still gives us chills every time we watch it. Truly talented and professional
+              photographers who go above and beyond.
+            </p>
+          </div>
+
+          <!-- Review 3 -->
+          <div class="about-review-card" data-stars="4">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                JD</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Juan Dela Cruz</h4>
+                <p class="text-text-muted text-xs">Corporate Event</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-line about-star-empty"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Great coverage for our annual company event. The team was punctual, professional, and delivered
+              high-quality
+              photos within the agreed timeline. The only reason for 4 stars is we wished for a few more candid shots,
+              but
+              overall an excellent experience.
+            </p>
+          </div>
+
+          <!-- Review 4 -->
+          <div class="about-review-card" data-stars="5">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                AS</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Ana Santos</h4>
+                <p class="text-text-muted text-xs">Birthday Debut</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              We hired this team for our daughter's birthday celebration, and they absolutely nailed it. They captured
+              every special moment without being intrusive, and the final photos and video were vibrant and full of
+              life.
+              Their professionalism and friendly energy made everyone feel comfortable.
+            </p>
+          </div>
+
+          <!-- Review 5 -->
+          <div class="about-review-card" data-stars="3">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                RL</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Roberto Lim</h4>
+                <p class="text-text-muted text-xs">Christening</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-line about-star-empty"></i>
+              <i class="ri-star-line about-star-empty"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Good photos overall and the team was friendly. Delivery took a bit longer than expected but the quality
+              was decent. Would recommend for casual events.
+            </p>
+          </div>
+
+          <!-- Review 6 -->
+          <div class="about-review-card" data-stars="4">
+            <div class="flex items-center gap-3 mb-3">
+              <div
+                class="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-text-primary font-bold text-lg shrink-0">
+                CG</div>
+              <div>
+                <h4 class="font-bold text-text-primary">Carlo Garcia</h4>
+                <p class="text-text-muted text-xs">Wedding</p>
+              </div>
+            </div>
+            <div class="flex gap-0.5 mb-3">
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-fill about-star"></i>
+              <i class="ri-star-line about-star-empty"></i>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed">
+              Very happy with the wedding photos! The team was professional and creative. They captured beautiful candid
+              moments that we'll treasure forever. The video editing was superb with great music choices.
+            </p>
+          </div>
+        </div>
+
+        <!-- No results message -->
+        <p id="about-no-reviews" class="hidden text-center text-text-muted py-12 text-lg">
+          No reviews found for this rating.
+        </p>
+
+        <!-- ===== WRITE A REVIEW FORM ===== -->
+        <div class="mt-12 pt-10 border-t border-border">
+          <h3 class="text-xl sm:text-2xl font-bold text-text-primary mb-1">
+            <i class="ri-edit-line mr-1"></i> Write a Review
+          </h3>
+          <p class="text-text-muted text-sm mb-6">Share your experience with Shootgeeks</p>
+
+          <form id="about-review-form" class="bg-surface rounded-2xl shadow-md p-6 sm:p-8 space-y-5">
+            <!-- Row: Name & Event Type -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="review-name" class="text-sm font-medium text-text-primary block mb-1">Your Name</label>
+                <input type="text" id="review-name" placeholder="e.g. Juan Dela Cruz" required maxlength="100"
+                  pattern="^[A-Za-z\s\-'.]+$" title="Name should only contain letters, spaces, hyphens, and apostrophes."
+                  class="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary transition">
+              </div>
+              <div>
+                <label for="review-event" class="text-sm font-medium text-text-primary block mb-1">Event Type</label>
+                <select id="review-event" required
+                  class="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary focus:outline-none focus:ring-2 focus:ring-primary transition">
+                  <option value="" disabled selected>Select event type</option>
+                  <option value="Wedding">Wedding</option>
+                  <option value="Birthday / Debut">Birthday / Debut</option>
+                  <option value="Corporate Event">Corporate Event</option>
+                  <option value="Christening">Christening</option>
+                  <option value="Concert">Concert</option>
+                  <option value="Other">Other</option>
+                </select>
+                <!-- Other event text input (hidden by default) -->
+                <input type="text" id="review-event-other" placeholder="Please specify your event type..."
+                  maxlength="100" pattern="^[A-Za-z\s\-'.]+$" title="Event type should only contain letters, spaces, hyphens, and apostrophes."
+                  class="hidden w-full mt-2 rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary transition">
+              </div>
+            </div>
+
+            <!-- Star Rating -->
+            <div>
+              <label class="text-sm font-medium text-text-primary block mb-2">Your Rating</label>
+              <div class="flex gap-1" id="review-star-picker">
+                <button type="button" class="review-star-btn text-2xl text-border hover:text-yellow-400 transition"
+                  data-value="1"><i class="ri-star-fill"></i></button>
+                <button type="button" class="review-star-btn text-2xl text-border hover:text-yellow-400 transition"
+                  data-value="2"><i class="ri-star-fill"></i></button>
+                <button type="button" class="review-star-btn text-2xl text-border hover:text-yellow-400 transition"
+                  data-value="3"><i class="ri-star-fill"></i></button>
+                <button type="button" class="review-star-btn text-2xl text-border hover:text-yellow-400 transition"
+                  data-value="4"><i class="ri-star-fill"></i></button>
+                <button type="button" class="review-star-btn text-2xl text-border hover:text-yellow-400 transition"
+                  data-value="5"><i class="ri-star-fill"></i></button>
+              </div>
+              <input type="hidden" id="review-rating" value="0">
+            </div>
+
+            <!-- Feedback Tags (appears after selecting stars) -->
+            <div id="review-feedback-tags" class="hidden">
+              <label class="text-sm font-medium text-text-primary block mb-2">What stood out? <span
+                  class="text-text-muted font-normal">(select all that apply)</span></label>
+              <div id="review-tags-container" class="flex flex-wrap gap-2">
+                <!-- Tags injected by about.js based on star rating -->
+              </div>
+            </div>
+
+            <!-- Comment -->
+            <div>
+              <label for="review-comment" class="text-sm font-medium text-text-primary block mb-1">Your Review</label>
+              <textarea id="review-comment" rows="4" placeholder="Tell us about your experience..." required
+                maxlength="500"
+                class="w-full rounded-lg border border-border bg-card px-4 py-2.5 text-sm text-text-primary placeholder:text-text-muted/50 focus:outline-none focus:ring-2 focus:ring-primary transition resize-none"></textarea>
+            </div>
+
+            <!-- Submit -->
+            <div class="flex justify-end">
+              <button type="submit" class="buttons" id="review-submit-btn">
+                <i class="ri-send-plane-fill mr-1"></i> Submit Review
+              </button>
+            </div>
+          </form>
+        </div>
+
+      </div>
+    </section>
+
+
+
+  </div>
+
+  <div data-tab-content="portfolio" id="portfolio">
+    <div class="flex min-h-screen bg-card">
+      <!-- ===== SIDEBAR ===== -->
+      <aside id="gallery-sidebar"
+        class="gallery-sidebar hidden md:flex sticky top-0 self-start h-screen flex-col bg-[#1a1a2e] text-white shadow-2xl transition-all duration-300 ease-in-out shrink-0 z-40">
+        <!-- Toggle button -->
+        <button id="gallery-sidebar-toggle"
+          class="flex items-center justify-center h-14 w-full text-xl hover:bg-white/10 transition-colors cursor-pointer shrink-0">
+          <i class="ri-menu-line"></i>
+        </button>
+
+        <!-- Navigation links -->
+        <nav class="flex-1 flex flex-col gap-1 px-2 py-4 overflow-y-auto">
+          <button data-category="All"
+            class="gallery-sidebar-link gallery-sidebar-link-active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-gallery-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">All Photos</span>
+          </button>
+          <button data-category="Wedding"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-heart-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Wedding</span>
+          </button>
+          <button data-category="Debut"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-cake-2-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Debut</span>
+          </button>
+          <button data-category="Corporate"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-briefcase-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Corporate</span>
+          </button>
+          <button data-category="Engagement"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-hearts-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Engagement</span>
+          </button>
+          <button data-category="Birthday"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-gift-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Birthday</span>
+          </button>
+          <button data-category="Portrait"
+            class="gallery-sidebar-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-all duration-200 cursor-pointer w-full text-left">
+            <i class="ri-user-smile-line text-lg shrink-0"></i>
+            <span class="gallery-sidebar-label whitespace-nowrap overflow-hidden">Portrait</span>
+          </button>
+        </nav>
+
+        <!-- Bottom branding -->
+        <div class="px-3 py-4 border-t border-white/10 shrink-0">
+          <div class="gallery-sidebar-label text-xs text-white/40 text-center overflow-hidden whitespace-nowrap">
+            Shoot<span class="text-primary">geeks</span> Gallery
+          </div>
+        </div>
+      </aside>
+
+      <!-- ===== MAIN GALLERY AREA ===== -->
+      <main class="flex-1 min-w-0 transition-all duration-300 ease-in-out">
+        <!-- Header -->
+        <div class="bg-surface border-b border-border/60 px-4 sm:px-6 py-4">
+          <div class="flex items-center justify-between">
+            <div>
+              <h2 class="text-xl sm:text-2xl font-bold text-text-primary">Portfolio</h2>
+              <p id="gallery-image-count" class="text-sm text-text-muted">0 photos</p>
+            </div>
+          </div>
+
+          <!-- Mobile category bar (visible only on mobile, replaces sidebar) -->
+          <div class="md:hidden mt-3">
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-xs font-semibold text-text-muted uppercase tracking-wider mr-1">Category</span>
+              <button class="gallery-mobile-cat gallery-pill gallery-pill-active" data-category="All">All</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Wedding">Wedding</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Debut">Debut</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Corporate">Corporate</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Engagement">Engagement</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Birthday">Birthday</button>
+              <button class="gallery-mobile-cat gallery-pill" data-category="Portrait">Portrait</button>
+            </div>
+          </div>
+
+          <!-- Sub-filter bar (hidden when "All" category is active) -->
+          <div id="gallery-sub-filters" class="hidden mt-3 space-y-3">
+            <!-- Photography Style pills -->
+            <div class="flex flex-wrap items-center gap-2">
+              <span class="text-xs font-semibold text-text-muted uppercase tracking-wider mr-1">Style</span>
+              <button class="pill-style gallery-pill gallery-pill-active" data-value="All">All Styles</button>
+              <button class="pill-style gallery-pill" data-value="Candid">Candid</button>
+              <button class="pill-style gallery-pill" data-value="Documentary">Documentary</button>
+              <button class="pill-style gallery-pill" data-value="Emotional Moments">Emotional Moments</button>
+              <button class="pill-style gallery-pill" data-value="Timeless">Timeless</button>
+            </div>
+          </div>
+
+          <!-- Date Range Filter (always visible) -->
+          <div id="gallery-date-filter" class="mt-3">
+            <div class="flex flex-wrap items-center gap-3">
+              <span class="text-xs font-semibold text-text-muted uppercase tracking-wider mr-1">
+                <i class="ri-calendar-line"></i> Year
+              </span>
+
+              <!-- From -->
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-text-muted font-medium">From</span>
+                <select id="date-from-year" class="gallery-date-select">
+                  <option value="">Year</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                </select>
+              </div>
+
+              <!-- To -->
+              <div class="flex items-center gap-1.5">
+                <span class="text-xs text-text-muted font-medium">To</span>
+                <select id="date-to-year" class="gallery-date-select">
+                  <option value="">Year</option>
+                  <option value="2022">2022</option>
+                  <option value="2023">2023</option>
+                  <option value="2024">2024</option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                </select>
+              </div>
+
+              <!-- Clear button -->
+              <button id="date-filter-clear"
+                class="gallery-pill text-xs px-3 py-1.5 opacity-60 hover:opacity-100 transition-opacity">
+                <i class="ri-close-line"></i> Clear
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gallery Grid -->
+        <div id="gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-6">
+          <!-- Cards injected by gallery.js -->
+        </div>
+      </main>
+    </div>
+
+    <!-- ===== LIGHTBOX ===== -->
+    <div id="gallery-lightbox" class="gallery-lightbox fixed inset-0 z-[9999] flex items-center justify-center">
+      <button id="lightbox-close"
+        class="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition cursor-pointer">
+        <i class="ri-close-line"></i>
+      </button>
+      <button id="lightbox-prev"
+        class="gallery-arrow absolute left-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition cursor-pointer">
+        <i class="ri-arrow-left-s-line"></i>
+      </button>
+      <img id="lightbox-img" src="" alt="" class="max-h-[85vh] max-w-[90vw] rounded-xl object-contain shadow-2xl" />
+      <button id="lightbox-next"
+        class="gallery-arrow absolute right-4 z-10 w-12 h-12 flex items-center justify-center rounded-full bg-white/10 text-white text-2xl hover:bg-white/20 transition cursor-pointer">
+        <i class="ri-arrow-right-s-line"></i>
+      </button>
+      <p id="lightbox-counter" class="absolute bottom-6 text-white/70 text-sm"></p>
+    </div>
+  </div>
+
+  <div data-tab-content="booking" id="booking">
+    <div class="min-h-screen bg-background">
+      <!-- ===== TIMELINE PROGRESS BAR ===== -->
+      <div class="bg-primary py-3 px-4 sticky top-0 z-30">
+        <div class="max-w-3xl mx-auto">
+          <div class="flex items-center justify-between text-xs sm:text-sm font-medium" id="booking-timeline">
+            <button class="booking-tl-step active" data-step="1">
+              <span class="booking-tl-circle">1</span>
+              <span class="booking-tl-label">Package</span>
+            </button>
+            <span class="booking-tl-line"></span>
+            <button class="booking-tl-step" data-step="2">
+              <span class="booking-tl-circle">2</span>
+              <span class="booking-tl-label">Date & Time</span>
+            </button>
+            <span class="booking-tl-line"></span>
+            <button class="booking-tl-step" data-step="3">
+              <span class="booking-tl-circle">3</span>
+              <span class="booking-tl-label">Your Info</span>
+            </button>
+            <span class="booking-tl-line"></span>
+            <button class="booking-tl-step" data-step="4">
+              <span class="booking-tl-circle">4</span>
+              <span class="booking-tl-label">Photography Style</span>
+            </button>
+            <span class="booking-tl-line"></span>
+            <button class="booking-tl-step" data-step="5">
+              <span class="booking-tl-circle">5</span>
+              <span class="booking-tl-label">Confirmation</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== STEP PANELS CONTAINER ===== -->
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+
+        <!-- ========== STEP 1: CHOOSE PACKAGE ========== -->
+        <div class="booking-panel active" id="booking-step-1">
+          <h2
+            class="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-text-primary mb-2 uppercase tracking-wide">
+            Choose Your<br>Photography Package
+          </h2>
+          <p class="text-center text-text-muted mb-8">Select the package that best fits your event</p>
+
+          <div class="space-y-4" id="booking-packages">
+            <!-- Elite Lite -->
+            <label class="booking-pkg-card" data-pkg="0">
+              <input type="radio" name="booking-package" value="0" class="hidden">
+              <div class="flex items-start gap-4">
+                <span class="booking-pkg-radio"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-text-primary">Elite Lite</h3>
+                    <span class="text-text-muted">—</span>
+                    <span class="text-lg font-bold text-primary-hover">PHP 25,000</span>
+                  </div>
+                  <p class="text-text-muted text-sm leading-relaxed">
+                    Full HD cinematic video highlights, 1 professional photographer, 1 professional videographer, all
+                    photos enhanced, and full video documentation.
+                  </p>
+                </div>
+              </div>
+            </label>
+
+            <!-- Royale Lite -->
+            <label class="booking-pkg-card" data-pkg="1">
+              <input type="radio" name="booking-package" value="1" class="hidden">
+              <div class="flex items-start gap-4">
+                <span class="booking-pkg-radio"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-text-primary">Royale Lite</h3>
+                    <span class="text-text-muted">—</span>
+                    <span class="text-lg font-bold text-primary-hover">PHP 39,999</span>
+                  </div>
+                  <p class="text-text-muted text-sm leading-relaxed">
+                    Full HD cinematic SDE, wedding day coverage, 1 photographer, 2 videographers, FREE prenuptial
+                    photoshoot, AVP presentation, and full video documentation.
+                  </p>
+                </div>
+              </div>
+            </label>
+
+            <!-- Summit Lite -->
+            <label class="booking-pkg-card" data-pkg="2">
+              <input type="radio" name="booking-package" value="2" class="hidden">
+              <div class="flex items-start gap-4">
+                <span class="booking-pkg-radio"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-text-primary">Summit Lite</h3>
+                    <span class="text-text-muted">—</span>
+                    <span class="text-lg font-bold text-primary-hover">PHP 44,999</span>
+                  </div>
+                  <p class="text-text-muted text-sm leading-relaxed">
+                    Full HD cinematic SDE, wedding day coverage, 1 photographer, 2 videographers, 20-page 8x10 hard
+                    bound album, FREE prenuptial photoshoot, and AVP presentation.
+                  </p>
+                </div>
+              </div>
+            </label>
+
+            <!-- Summit Premium -->
+            <label class="booking-pkg-card" data-pkg="3">
+              <input type="radio" name="booking-package" value="3" class="hidden">
+              <div class="flex items-start gap-4">
+                <span class="booking-pkg-radio"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-text-primary">Summit Premium</h3>
+                    <span class="text-text-muted">—</span>
+                    <span class="text-lg font-bold text-primary-hover">PHP 54,999</span>
+                  </div>
+                  <p class="text-text-muted text-sm leading-relaxed">
+                    Full HD cinematic SDE, 2 photographers, 2 videographers, 40-page album, save the date video,
+                    aerial/drone shots, FREE prenuptial photoshoot, and AVP presentation.
+                  </p>
+                </div>
+              </div>
+            </label>
+
+            <!-- Paramount -->
+            <label class="booking-pkg-card" data-pkg="4">
+              <input type="radio" name="booking-package" value="4" class="hidden">
+              <div class="flex items-start gap-4">
+                <span class="booking-pkg-radio"></span>
+                <div class="flex-1">
+                  <div class="flex flex-wrap items-baseline gap-2 mb-1">
+                    <h3 class="text-lg sm:text-xl font-bold text-text-primary">Paramount</h3>
+                    <span class="text-text-muted">—</span>
+                    <span class="text-lg font-bold text-primary-hover">PHP 100,000</span>
+                  </div>
+                  <p class="text-text-muted text-sm leading-relaxed">
+                    SDE by Ernesto Dadula, 3 photographers, 3 videographers, 40-page album, pre-wedding film,
+                    aerial/drone shots, FREE prenuptial photoshoot, 1TB hard drive, and AVP presentation.
+                  </p>
+                </div>
+              </div>
+            </label>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex justify-end mt-8">
+            <button class="booking-btn-next buttons opacity-50 cursor-not-allowed" id="booking-next-1" disabled>
+              Proceed <i class="ri-arrow-right-line ml-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========== STEP 2: DATE & TIME ========== -->
+        <div class="booking-panel" id="booking-step-2">
+          <h2 class="text-2xl sm:text-3xl font-bold text-primary-hover mb-6">Set the date:</h2>
+
+          <!-- Number of Days (FIRST) -->
+          <div class="bg-surface rounded-2xl shadow-md p-4 sm:p-6 mb-6">
+            <h3 class="text-lg font-semibold text-text-primary mb-4">
+              <i class="ri-calendar-event-line mr-1"></i> Number of Days
+            </h3>
+            <p class="text-text-muted text-sm mb-3">How many days do you need coverage for?</p>
+            <div class="flex items-center gap-4">
+              <select id="booking-num-days" class="booking-input w-full sm:w-48">
+                <option value="1">1 Day</option>
+                <option value="2">2 Days</option>
+                <option value="3">3 Days</option>
+                <option value="4">4 Days</option>
+                <option value="5">5 Days</option>
+                <option value="6">6 Days</option>
+                <option value="7">7 Days</option>
+              </select>
+              <p class="text-text-muted text-xs hidden sm:block">Select more than 1 day for multi-day events</p>
+            </div>
+          </div>
+
+          <!-- Calendar -->
+          <div class="bg-surface rounded-2xl shadow-md p-4 sm:p-6 mb-6">
+            <div class="flex items-center justify-between mb-2">
+              <h3 class="text-lg sm:text-xl font-bold text-text-primary" id="booking-cal-title">March 2026</h3>
+              <div class="flex gap-2">
+                <button
+                  class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-card transition cursor-pointer"
+                  id="booking-cal-prev">
+                  <i class="ri-arrow-left-s-line text-xl"></i>
+                </button>
+                <button
+                  class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-card transition cursor-pointer"
+                  id="booking-cal-next">
+                  <i class="ri-arrow-right-s-line text-xl"></i>
+                </button>
+              </div>
+            </div>
+
+            <!-- Helper text for multi-day -->
+            <p id="booking-cal-helper" class="text-text-muted text-sm mb-4">Pick your event date</p>
+
+            <!-- Day headers -->
+            <div class="grid grid-cols-7 text-center text-sm font-semibold text-text-muted mb-2">
+              <span>SU</span><span>MO</span><span>TU</span><span>WE</span><span>TH</span><span>FR</span><span>SA</span>
+            </div>
+
+            <!-- Calendar grid (populated by JS) -->
+            <div class="grid grid-cols-7 text-center gap-y-1" id="booking-cal-grid">
+              <!-- Days injected by booking.js -->
+            </div>
+
+            <!-- Selected dates display -->
+            <div id="booking-selected-dates" class="mt-4 hidden">
+              <p class="text-xs font-bold uppercase tracking-wider text-text-muted mb-2">Selected Dates:</p>
+              <div id="booking-selected-dates-list" class="flex flex-wrap gap-2"></div>
+            </div>
+
+            <!-- Legend -->
+            <div class="flex items-center justify-center gap-8 mt-4 text-xs text-text-muted">
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-primary inline-block"></span> Selected
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="w-3 h-3 rounded-full bg-red-400 inline-block"></span> Unavailable
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-surface rounded-2xl shadow-md p-4 sm:p-6" id="booking-time-section">
+            <h3 class="text-lg font-semibold text-text-primary mb-4">
+              <i class="ri-time-line mr-1"></i> Event Time
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="text-sm text-text-muted font-medium block mb-1">From:</label>
+                <input type="time" id="booking-time-from" class="booking-input w-full">
+              </div>
+              <div>
+                <label class="text-sm text-text-muted font-medium block mb-1">Until:</label>
+                <input type="time" id="booking-time-to" class="booking-input w-full">
+              </div>
+            </div>
+            <p id="booking-time-error" class="hidden text-red-500 text-sm mt-3 flex items-center gap-1">
+              <i class="ri-error-warning-line"></i>
+              <span id="booking-time-error-msg"></span>
+            </p>
+          </div>
+
+          <!-- Multi-day note (shown only for multi-day bookings) -->
+          <div id="booking-multiday-note" class="hidden bg-surface rounded-2xl shadow-md p-4 sm:p-6">
+            <div class="flex items-start gap-3">
+              <i class="ri-information-line text-xl text-primary-hover mt-0.5"></i>
+              <div>
+                <h3 class="text-base font-semibold text-text-primary mb-1">Multi-Day Booking</h3>
+                <p class="text-text-muted text-sm">Event times for multi-day bookings will be discussed directly with
+                  our team after you confirm your booking.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex justify-between mt-8">
+            <button class="booking-btn-back" id="booking-back-2">
+              <i class="ri-arrow-left-line mr-1"></i> Back
+            </button>
+            <button class="booking-btn-next buttons opacity-50 cursor-not-allowed" id="booking-next-2" disabled>
+              Your Information <i class="ri-arrow-right-line ml-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========== STEP 3: YOUR INFO ========== -->
+        <div class="booking-panel" id="booking-step-3">
+          <h2 class="text-2xl sm:text-3xl font-bold text-text-primary mb-6">Fill in your Information</h2>
+
+          <div class="space-y-5">
+            <!-- Email Address -->
+            <div>
+              <label class="booking-field-label"><i class="ri-mail-fill mr-1"></i> Email Address</label>
+              <input type="email" id="booking-email" class="booking-input w-full" placeholder="you@example.com"
+                maxlength="100">
+            </div>
+
+            <!-- Event Type -->
+            <div>
+              <label class="booking-field-label"><i class="ri-calendar-event-fill mr-1"></i> Event Type</label>
+              <select id="booking-event-type" class="booking-input w-full">
+                <option value="" disabled selected>Select your event type</option>
+                <option value="Wedding">Wedding</option>
+                <option value="Debut">Debut</option>
+                <option value="Corporate">Corporate</option>
+                <option value="Engagement">Engagement</option>
+                <option value="Birthday">Birthday</option>
+                <option value="Portrait">Portrait</option>
+                <option value="Christening">Christening</option>
+                <option value="Concert">Concert</option>
+                <option value="Other">Other</option>
+              </select>
+              <!-- Other event type text input (hidden by default) -->
+              <input type="text" id="booking-event-type-other" class="booking-input w-full mt-2 hidden"
+                placeholder="Please specify your event type..." maxlength="100">
+            </div>
+
+            <!-- First Name & Last Name -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="booking-field-label"><i class="ri-user-fill mr-1"></i> First Name</label>
+                <input type="text" id="booking-first-name" class="booking-input w-full" placeholder="Juan"
+                  maxlength="50">
+              </div>
+              <div>
+                <label class="booking-field-label"><i class="ri-user-fill mr-1"></i> Last Name</label>
+                <input type="text" id="booking-last-name" class="booking-input w-full" placeholder="Dela Cruz"
+                  maxlength="50">
+              </div>
+            </div>
+
+            <!-- Street Line 1 -->
+            <div>
+              <label class="booking-field-label"><i class="ri-map-pin-fill mr-1"></i> Street Line 1</label>
+              <input type="text" id="booking-street1" class="booking-input w-full" placeholder="Street address"
+                maxlength="200">
+            </div>
+
+            <!-- Street Line 2 (optional) -->
+            <div>
+              <label class="booking-field-label"><i class="ri-map-pin-2-fill mr-1"></i> Street Line 2 <span
+                  class="text-text-muted font-normal text-xs">(Optional)</span></label>
+              <input type="text" id="booking-street2" class="booking-input w-full"
+                placeholder="Apartment, suite, unit, etc." maxlength="200">
+            </div>
+
+            <!-- Country, State/Province, City -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div>
+                <label class="booking-field-label"><i class="ri-global-fill mr-1"></i> Country</label>
+                <select id="booking-country" class="booking-input w-full">
+                  <option value="" disabled selected>Loading...</option>
+                </select>
+              </div>
+              <div>
+                <label class="booking-field-label"><i class="ri-map-fill mr-1"></i> State / Province</label>
+                <select id="booking-state" class="booking-input w-full" disabled>
+                  <option value="" disabled selected>Select State/Province</option>
+                </select>
+              </div>
+              <div>
+                <label class="booking-field-label"><i class="ri-building-2-fill mr-1"></i> City</label>
+                <select id="booking-city" class="booking-input w-full" disabled>
+                  <option value="" disabled selected>Select City</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Zip Code & Phone Number -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label class="booking-field-label"><i class="ri-hashtag mr-1"></i> Zip Code</label>
+                <input type="text" id="booking-zip" class="booking-input w-full" placeholder="e.g. 4103" maxlength="10"
+                  inputmode="numeric">
+              </div>
+              <div>
+                <label class="booking-field-label"><i class="ri-phone-fill mr-1"></i> Phone Number</label>
+                <input type="tel" id="booking-phone" class="booking-input w-full" placeholder="09XX XXX XXXX"
+                  maxlength="15" inputmode="numeric" pattern="[0-9]*">
+              </div>
+            </div>
+
+            <!-- Additional Details (optional) -->
+            <div>
+              <label class="booking-field-label">Additional Details <span
+                  class="text-text-muted font-normal text-xs">(Optional)</span></label>
+              <textarea id="booking-details" class="booking-input w-full h-32 resize-y"
+                placeholder="Tell us more about your event, special requests, any questions you have.."
+                maxlength="500"></textarea>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex justify-between mt-8">
+            <button class="booking-btn-back" id="booking-back-3">
+              <i class="ri-arrow-left-line mr-1"></i> Back
+            </button>
+            <button class="booking-btn-next buttons opacity-50 cursor-not-allowed" id="booking-next-3" disabled>
+              Pick a Style <i class="ri-arrow-right-line ml-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========== STEP 4: PHOTOGRAPHY STYLE ========== -->
+        <div class="booking-panel" id="booking-step-4">
+          <h2 class="text-2xl sm:text-3xl font-bold text-center text-text-primary mb-1">Choose Photography Style</h2>
+          <p class="text-center text-text-muted mb-8">Select the photography style that matches your vision</p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6" id="booking-styles-grid">
+            <!-- Style cards injected by booking.js -->
+          </div>
+
+          <!-- Image Reference Section -->
+          <div class="mt-10 border-t border-border pt-8">
+            <div class="flex items-center gap-3 mb-2">
+              <i class="ri-image-line text-primary text-xl"></i>
+              <h3 class="text-lg font-bold text-text-primary">Reference Images</h3>
+            </div>
+            <p class="text-text-muted text-sm mb-5">Upload up to 4 reference images to help us understand your vision</p>
+
+            <!-- Upload Area -->
+            <div id="booking-reference-upload-area">
+              <div class="border-2 border-dashed border-border rounded-xl p-6 text-center hover:border-primary/50 transition cursor-pointer" id="reference-drop-zone">
+                <input type="file" id="reference-file-input" accept="image/*" multiple class="hidden" />
+                <div class="flex flex-col items-center gap-2">
+                  <i class="ri-upload-cloud-2-line text-3xl text-text-muted"></i>
+                  <p class="text-text-primary font-medium">Click or drag images here</p>
+                  <p class="text-text-muted text-xs">Supports JPG, PNG, WEBP (max 4 images)</p>
+                </div>
+              </div>
+
+              <!-- Preview Grid -->
+              <div id="reference-preview-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3 mt-5"></div>
+            </div>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex justify-between mt-8">
+            <button class="booking-btn-back" id="booking-back-4">
+              <i class="ri-arrow-left-line mr-1"></i> Back
+            </button>
+            <button class="booking-btn-next buttons opacity-50 cursor-not-allowed" id="booking-next-4" disabled>
+              Review Booking <i class="ri-arrow-right-line ml-1"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- ========== STEP 5: CONFIRMATION ========== -->
+        <div class="booking-panel" id="booking-step-5">
+          <h2 class="text-2xl sm:text-3xl font-bold text-center text-text-primary mb-6">You've Chosen</h2>
+
+          <div class="bg-[#1a1a2e] rounded-2xl p-5 sm:p-8 shadow-lg border-t-4 border-primary">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+              <!-- Date -->
+              <div class="bg-white/10 rounded-xl p-4 border-l-4 border-primary">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Date You Selected</p>
+                <p class="text-white font-semibold text-sm" id="confirm-date">—</p>
+              </div>
+              <!-- Number of Days -->
+              <div class="bg-white/10 rounded-xl p-4 border-l-4 border-primary">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Number of Days</p>
+                <p class="text-white font-semibold text-sm" id="confirm-num-days">1 Day</p>
+              </div>
+              <!-- Package -->
+              <div class="bg-white/10 rounded-xl p-4 border-l-4 border-primary">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Package You Selected</p>
+                <p class="text-white font-bold text-lg" id="confirm-package">—</p>
+                <p class="text-white/70 text-xs mt-1" id="confirm-package-desc"></p>
+              </div>
+              <!-- Style -->
+              <div class="bg-white/10 rounded-xl p-4 border-l-4 border-primary">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Style You Selected</p>
+                <ul class="text-white text-sm space-y-1" id="confirm-styles">
+                  <li>—</li>
+                </ul>
+              </div>
+              <!-- Additional Details -->
+              <div class="bg-white/10 rounded-xl p-4 border-l-4 border-primary">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Additional Details</p>
+                <p class="text-white/70 text-sm" id="confirm-details">—</p>
+              </div>
+            </div>
+
+            <!-- Contact info row -->
+            <div class="bg-white/10 rounded-xl p-4 mt-4 border-l-4 border-primary">
+              <p class="text-xs font-bold uppercase tracking-wider text-primary mb-2">Your Information</p>
+              <div id="confirm-info-body" class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-white text-sm">
+                <!-- Populated by booking.js -->
+              </div>
+            </div>
+
+             <!-- Uploaded Reference Images (shown only if uploaded) -->
+            <div id="confirm-reference-images" class="hidden bg-white/10 rounded-xl p-4 mt-4 border-l-4 border-primary">
+              <p class="text-xs font-bold uppercase tracking-wider text-primary mb-3">
+                <i class="ri-image-fill mr-1"></i>Your Reference Images
+              </p>
+              <div id="confirm-reference-grid" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                <!-- Populated by booking.js -->
+              </div>
+            </div>
+          </div>
+
+          <!-- Cancellation Policy Disclaimer -->
+          <div class="mt-6 rounded-xl border-2 border-amber-500 bg-amber-950 p-4 flex items-start gap-3">
+            <i class="ri-error-warning-fill text-amber-400 text-xl shrink-0 mt-0.5"></i>
+            <div>
+              <p class="text-amber-400 font-bold text-sm mb-1">⚠ Cancellation Policy</p>
+              <p class="text-white text-xs leading-relaxed">
+                Please note that once your booking has been confirmed, the <strong class="text-amber-400">30%
+                  downpayment is strictly non-refundable</strong> in the event of a cancellation. We encourage you to
+                review your booking details carefully before submitting. For rescheduling options, please contact us
+                directly.
+              </p>
+            </div>
+          </div>
+
+          <!-- Photo Usage Consent -->
+          <div class="mt-4 mb-2">
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <div class="relative flex items-center justify-center mt-1 shrink-0">
+                <input type="checkbox" id="booking-photo-consent"
+                  class="peer appearance-none w-5 h-5 border-2 border-border rounded bg-surface checked:bg-primary checked:border-primary transition cursor-pointer">
+                <i
+                  class="ri-check-line absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none text-sm font-bold"></i>
+              </div>
+              <span class="text-text-muted text-sm leading-relaxed select-none">
+                <span class="text-text-primary font-semibold">Photo Usage Consent <span
+                    class="text-text-muted font-normal text-xs">(Optional)</span></span><br>
+                I allow Shootgeeks to use photos and videos taken during my event for business purposes, including but
+                not limited to advertising, website galleries, social media, and promotional materials.
+              </span>
+            </label>
+          </div>
+
+          <!-- Terms & Conditions -->
+          <div class="mt-3 mb-4">
+            <label class="flex items-start gap-3 cursor-pointer group">
+              <div class="relative flex items-center justify-center mt-1 shrink-0">
+                <input type="checkbox" id="booking-agree-terms"
+                  class="peer appearance-none w-5 h-5 border-2 border-border rounded bg-surface checked:bg-primary checked:border-primary transition cursor-pointer">
+                <i
+                  class="ri-check-line absolute text-white opacity-0 peer-checked:opacity-100 pointer-events-none text-sm font-bold"></i>
+              </div>
+              <span class="text-text-muted text-sm leading-relaxed select-none">
+                I have read and agree to the
+                <a href="../assets/Shootgeeks Privacy Policy.pdf" target="_blank"
+                  class="text-primary hover:text-primary-hover underline underline-offset-2 transition"
+                  onclick="event.stopPropagation()">Privacy Policy</a>
+                and
+                <a href="../assets/Shootgeeks Term and Condition.pdf" target="_blank"
+                  class="text-primary hover:text-primary-hover underline underline-offset-2 transition"
+                  onclick="event.stopPropagation()">Terms & Conditions</a>.
+              </span>
+            </label>
+            <p id="booking-terms-error" class="hidden text-red-500 text-sm mt-2 ml-8 flex items-center gap-1">
+              <i class="ri-error-warning-line"></i> Please agree to the terms to proceed.
+            </p>
+          </div>
+
+          <!-- Navigation -->
+          <div class="flex justify-between mt-8">
+            <button class="booking-btn-back" id="booking-back-5">
+              <i class="ri-arrow-left-line mr-1"></i> Back
+            </button>
+            <button class="buttons text-lg px-8 py-3 font-bold" id="booking-confirm">
+              <i class="ri-check-line mr-1"></i> Submit Booking
+            </button>
+          </div>
+        </div>
+
+      </div><!-- /max-w container -->
+    </div>
+  </div>
+  </div>
+
+
+  <!-- ===== GLOBAL FOOTER ===== -->
+  <footer id="site-footer" class="bg-[#1a1a2e] text-white/80 pt-14 pb-6 px-6 sm:px-10">
+    <div class="max-w-6xl mx-auto">
+      <!-- Top Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Column 1: Brand + Socials -->
+        <div>
+          <h3 class="text-2xl font-bold text-white mb-1">
+            Shoot<span class="text-primary">geeks</span>
+          </h3>
+          <p class="text-xs text-white/40 mb-4">powered by geekcos</p>
+          <p class="text-sm leading-relaxed mb-6">
+            Capturing your most special moments with creativity, passion, and professional excellence since 2014.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex gap-3">
+            <a href="https://www.facebook.com/shootgeeks" target="_blank" rel="noopener" class="footer-social-icon"
+              aria-label="Facebook">
+              <i class="ri-facebook-fill text-lg"></i>
+            </a>
+            <a href="https://www.instagram.com/shootgeeks/" target="_blank" rel="noopener" class="footer-social-icon"
+              aria-label="Instagram">
+              <i class="ri-instagram-line text-lg"></i>
+            </a>
+            <a href="https://www.tiktok.com/@shootgeeks" target="_blank" rel="noopener" class="footer-social-icon"
+              aria-label="TikTok">
+              <i class="ri-tiktok-line text-lg"></i>
+            </a>
+            <a href="https://www.youtube.com/@Shootgeeks" target="_blank" rel="noopener" class="footer-social-icon"
+              aria-label="YouTube">
+              <i class="ri-youtube-line text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Column 2: Services -->
+        <div>
+          <h4 class="footer-heading">Services</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchTab('#services'); return false;">Wedding</a></li>
+            <li><a href="#" onclick="switchTab('#services'); return false;">Events</a></li>
+            <li><a href="#" onclick="switchTab('#services'); return false;">Corporate Coverage</a></li>
+            <li><a href="#" onclick="switchTab('#services'); return false;">Portrait Sessions</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 3: Quick Links -->
+        <div>
+          <h4 class="footer-heading">Quick Links</h4>
+          <ul class="footer-links">
+            <li><a href="#" onclick="switchTab('#main'); return false;">Home</a></li>
+            <li><a href="#" onclick="switchTab('#services'); return false;">Services</a></li>
+            <li><a href="#" onclick="switchTab('#about'); return false;">About Us</a></li>
+            <li><a href="#" onclick="switchTab('#portfolio'); return false;">Portfolio</a></li>
+            <li><a href="#" onclick="switchTab('#booking'); return false;">Book a Session</a></li>
+          </ul>
+        </div>
+
+        <!-- Column 4: Contact Info -->
+        <div>
+          <h4 class="footer-heading">Contact Us</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-3">
+              <i class="ri-map-pin-2-fill text-primary mt-0.5 shrink-0"></i>
+              <a href="https://maps.app.goo.gl/xQAkWptKx3dPzxNc6" target="_blank"
+                class="hover:text-white hover:underline underline-offset-2 transition">Block 48 Lot 7, Jade Residences,
+                Imus, 4103 Cavite, Philippines</a>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="ri-phone-fill text-primary mt-0.5 shrink-0"></i>
+              <span>+63 938 044 6531</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="ri-mail-fill text-primary mt-0.5 shrink-0"></i>
+              <span>ernestodadula@gmail.com</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="ri-time-fill text-primary mt-0.5 shrink-0"></i>
+              <span>Mon – Sat, 24 Hours</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Divider -->
+      <div
+        class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <p>&copy; 2026 Shootgeeks. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="../assets/Shootgeeks Privacy Policy.pdf" target="_blank" class="hover:text-white transition">Privacy
+            Policy</a>
+          <a href="../assets/Shootgeeks Term and Condition.pdf" target="_blank"
+            class="hover:text-white transition">Terms & Conditions</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===== Chatbot Widget ===== -->
+  <!-- Floating Toggle Button -->
+  <button id="chatbot-toggle-btn" class="fixed bottom-6 right-6 z-[9999] w-15 h-15 rounded-full bg-primary text-text-primary shadow-lg
+           flex items-center justify-center hover:bg-primary-hover hover:scale-110
+           transition-all duration-300 cursor-pointer">
+    <img id="chatbot-icon-toggle" src="" alt="Chatbot" class="w-8 h-8 object-contain hidden">
+    <i id="chatbot-icon-toggle-fallback" class="ri-robot-3-line text-2xl"></i>
+  </button>
+
+  <!-- Chat Window -->
+  <div id="chatbot-window" class="chatbot-hidden fixed bottom-24 right-6 z-[9998] w-[380px] max-w-[calc(100vw-2rem)]
+           rounded-2xl shadow-2xl flex flex-col overflow-hidden border border-border
+           transition-all duration-300 bg-surface" style="height: 520px;">
+
+    <!-- Header -->
+    <div class="flex items-center gap-3 px-5 py-4 bg-primary text-text-primary">
+      <div class="w-10 h-10 rounded-full bg-primary-hover flex items-center justify-center overflow-hidden">
+        <img id="chatbot-icon-header" src="" alt="Chatbot" class="w-full h-full object-cover hidden">
+        <i id="chatbot-icon-header-fallback" class="ri-robot-3-line text-xl text-white"></i>
+      </div>
+      <div class="flex-1">
+        <h3 class="font-bold text-lg leading-tight">GeekTalk</h3>
+        <p class="text-xs opacity-75">Always here to help</p>
+      </div>
+      <button id="chatbot-close" class="hover:opacity-70 transition cursor-pointer">
+        <i class="ri-arrow-down-s-line text-2xl"></i>
+      </button>
+    </div>
+
+
+
+    <!-- Messages Area -->
+    <div id="chatbot-messages" class="flex-1 overflow-y-auto p-4 space-y-4 chatbot-scrollbar">
+    </div>
+
+    <!-- FAQ Panel (hidden by default) -->
+    <div id="chatbot-faq-panel" class="chatbot-faq-panel hidden">
+      <div class="chatbot-faq-header">
+        <span><i class="ri-question-line mr-1"></i>Frequently Asked Questions</span>
+        <button id="chatbot-faq-close" class="chatbot-faq-close-btn"><i class="ri-close-line"></i></button>
+      </div>
+      <div class="chatbot-faq-list chatbot-scrollbar">
+        <button class="chatbot-faq-item" data-faq="Do you travel for events?">
+          <i class="ri-map-pin-line"></i> Do you travel for events?
+        </button>
+        <button class="chatbot-faq-item" data-faq="How long until we get our photos and videos?">
+          <i class="ri-time-line"></i> How long until we get our photos/videos?
+        </button>
+        </button>
+        <button class="chatbot-faq-item" data-faq="Do you offer prenuptial or engagement shoots?">
+          <i class="ri-heart-line"></i> Do you offer prenuptial/engagement shoots?
+        </button>
+        <button class="chatbot-faq-item" data-faq="What happens if we need to cancel or reschedule?">
+          <i class="ri-calendar-close-line"></i> Cancel or reschedule a booking?
+        </button>
+        <button class="chatbot-faq-item" data-faq="What is an SDE or Same-Day Edit?">
+          <i class="ri-film-line"></i> What's an SDE (Same-Day Edit)?
+        </button>
+        <button class="chatbot-faq-item" data-faq="What is an AVP?">
+          <i class="ri-slideshow-line"></i> What's an AVP?
+        </button>
+        <button class="chatbot-faq-item" data-faq="What equipment do you use?">
+          <i class="ri-camera-line"></i> What equipment do you use?
+        </button>
+        <button class="chatbot-faq-item" data-faq="Do you have an AI tool?">
+          <i class="ri-sparkling-line"></i> Do you have an AI tool?
+        </button>
+        <button class="chatbot-faq-item" data-faq="How do we contact you for more info or to book?">
+          <i class="ri-phone-line"></i> How do we contact you?
+        </button>
+        <button class="chatbot-faq-item" data-faq="What are your available packages and prices?">
+          <i class="ri-price-tag-3-line"></i> What are your packages & prices?
+        </button>
+      </div>
+    </div>
+
+    <!-- Input Area -->
+    <div class="border-t border-border p-3 flex items-center gap-2 bg-card">
+      <button id="chatbot-faq-btn" class="w-10 h-10 rounded-full bg-surface border border-border hover:bg-primary-soft hover:border-primary text-text-muted hover:text-primary flex items-center
+               justify-center transition cursor-pointer shrink-0" title="FAQs">
+        <i class="ri-question-line text-lg"></i>
+      </button>
+      <input id="chatbot-input" type="text" class="flex-1 bg-surface border border-border rounded-full px-4 py-2.5 text-sm
+               focus:outline-none focus:ring-2 focus:ring-primary placeholder-text-muted" placeholder="Message...">
+      <button id="chatbot-send" class="w-10 h-10 rounded-full bg-primary hover:bg-primary-hover text-text-primary flex items-center
+               justify-center transition cursor-pointer shrink-0">
+        <i class="ri-send-plane-fill text-lg"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- ===== BOOKING SUCCESS MODAL ===== -->
+  <div id="booking-success-modal" class="sg-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="booking-modal-title">
+    <div class="sg-modal-card sg-modal-booking">
+      <!-- Icon -->
+      <div class="sg-modal-icon-wrap sg-modal-icon-booking">
+        <i class="ri-calendar-check-fill"></i>
+      </div>
+
+      <h2 id="booking-modal-title" class="sg-modal-title">Booking Submitted!</h2>
+      <p class="sg-modal-subtitle">
+        Your reservation at <strong>Shootgeeks</strong> has been received.<br>
+        We'll send a confirmation to your email shortly.
+      </p>
+
+      <!-- Booking details summary strip -->
+      <div class="sg-modal-details-strip" id="booking-modal-details">
+        <div class="sg-modal-detail-row" id="booking-modal-package-row">
+          <i class="ri-camera-fill"></i>
+          <span id="booking-modal-package">—</span>
+        </div>
+        <div class="sg-modal-detail-row" id="booking-modal-date-row">
+          <i class="ri-calendar-line"></i>
+          <span id="booking-modal-date">—</span>
+        </div>
+        <div class="sg-modal-detail-row" id="booking-modal-name-row">
+          <i class="ri-user-fill"></i>
+          <span id="booking-modal-name">—</span>
+        </div>
+      </div>
+
+      <!-- Reference Number -->
+      <div class="sg-modal-ref-box">
+        <p class="sg-modal-ref-label">Reference Number</p>
+        <p class="sg-modal-ref-number" id="booking-modal-ref">SG-2026-000000</p>
+        <button class="sg-modal-copy-btn" id="booking-modal-copy" title="Copy reference number">
+          <i class="ri-file-copy-line"></i> Copy
+        </button>
+      </div>
+
+      <p class="sg-modal-note">
+        <i class="ri-information-line"></i>
+        Please save your reference number for follow-ups. Our team will contact you within 24–48 hours.
+      </p>
+
+      <!-- Actions -->
+      <div class="sg-modal-actions">
+        <button class="sg-modal-btn-primary" id="booking-modal-done">
+          <i class="ri-check-line"></i> Done
+        </button>
+        <button class="sg-modal-btn-secondary" id="booking-modal-home">
+          Back to Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===== REVIEW SUCCESS MODAL ===== -->
+  <div id="review-success-modal" class="sg-modal-overlay" role="dialog" aria-modal="true" aria-labelledby="review-modal-title">
+    <div class="sg-modal-card sg-modal-review">
+      <!-- Icon -->
+      <div class="sg-modal-icon-wrap sg-modal-icon-review">
+        <i class="ri-star-smile-fill"></i>
+      </div>
+
+      <h2 id="review-modal-title" class="sg-modal-title">Review Submitted!</h2>
+      <p class="sg-modal-subtitle">
+        Thank you for sharing your experience with <strong>Shootgeeks</strong>!<br>
+        Your feedback helps us improve for everyone.
+      </p>
+
+      <!-- Stars display -->
+      <div class="sg-modal-stars" id="review-modal-stars">
+        <!-- Filled by JS -->
+      </div>
+
+      <!-- Reviewer info strip -->
+      <div class="sg-modal-details-strip sg-modal-details-review">
+        <div class="sg-modal-detail-row">
+          <i class="ri-user-fill"></i>
+          <span id="review-modal-reviewer">—</span>
+        </div>
+        <div class="sg-modal-detail-row">
+          <i class="ri-calendar-event-fill"></i>
+          <span id="review-modal-event">—</span>
+        </div>
+      </div>
+
+      <!-- Reference Number -->
+      <div class="sg-modal-ref-box sg-modal-ref-box-review">
+        <p class="sg-modal-ref-label">Review Reference</p>
+        <p class="sg-modal-ref-number sg-modal-ref-review" id="review-modal-ref">SG-2026-000000</p>
+        <button class="sg-modal-copy-btn sg-modal-copy-review" id="review-modal-copy" title="Copy reference number">
+          <i class="ri-file-copy-line"></i> Copy
+        </button>
+      </div>
+
+      <p class="sg-modal-note">
+        <i class="ri-heart-line"></i>
+        Your review will be published after a short verification. We appreciate you taking the time!
+      </p>
+
+      <!-- Actions -->
+      <div class="sg-modal-actions">
+        <button class="sg-modal-btn-primary sg-modal-btn-review-primary" id="review-modal-done">
+          <i class="ri-check-line"></i> Done
+        </button>
+        <button class="sg-modal-btn-secondary" id="review-modal-home">
+          Back to Home
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./cloudinary.js"></script>
+  <script src="./script.js"></script>
+  <script src="./services.js"></script>
+  <script src="./gallery.js"></script>
+  <script src="./booking.js"></script>
+  <script src="./chatbot.js"></script>
+  <script src="./about.js"></script>
+</body>
+
+</html>

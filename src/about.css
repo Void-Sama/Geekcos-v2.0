@@ -1,0 +1,381 @@
+/* =============================================
+   ABOUT — About Us Tab Styles
+   ============================================= */
+
+/* Value icons */
+.about-value-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-value-icon:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(200, 240, 0, 0.3);
+}
+
+/* Review cards */
+.about-review-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 1rem;
+  padding: 1.25rem 1.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-review-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Stars */
+.about-star {
+  color: #FACC15;
+  font-size: 1.1rem;
+}
+.about-star-empty {
+  color: #D1D5DB;
+  font-size: 1.1rem;
+}
+
+/* Filter pills */
+.about-filter-pill {
+  padding: 0.375rem 0.875rem;
+  border-radius: 9999px;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  border: 1.5px solid var(--color-primary);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.about-filter-pill:hover {
+  border-color: var(--color-primary);
+  color: var(--color-text-primary);
+  transform: translateY(-1px);
+}
+.about-filter-pill.active {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-text-primary) !important;
+  font-weight: 600;
+}
+
+/* Team cards */
+.about-team-card {
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.about-team-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
+}
+.about-team-img-wrap {
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  background: var(--color-card);
+}
+.about-team-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.about-team-card:hover .about-team-img {
+  transform: scale(1.05);
+}
+
+/* ================================================================== */
+/*  REVIEW SUCCESS MODAL                                               */
+/* ================================================================== */
+
+/* ── Overlay ── */
+.sg-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.sg-modal-overlay.sg-modal-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ── Card ── */
+.sg-modal-card {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem 1.75rem 1.75rem;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0,0,0,0.04);
+  position: relative;
+  transform: scale(0.88) translateY(20px);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease;
+  opacity: 0;
+}
+
+.sg-modal-overlay.sg-modal-open .sg-modal-card {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* ── Icon circle ── */
+.sg-modal-icon-wrap {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.25rem;
+  font-size: 2rem;
+}
+
+.sg-modal-icon-review {
+  background: #fef9e7;
+  color: #d4a017;
+}
+
+/* ── Title & subtitle ── */
+.sg-modal-title {
+  font-size: 1.375rem;
+  font-weight: 800;
+  color: var(--color-text-primary, #1F2933);
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.02em;
+}
+
+.sg-modal-subtitle {
+  font-size: 0.875rem;
+  color: var(--color-text-muted, #7A7A7A);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.sg-modal-subtitle strong {
+  color: var(--color-text-primary, #1F2933);
+}
+
+/* ── Details strip ── */
+.sg-modal-details-strip {
+  background: #f7fbef;
+  border: 1px solid #e2e8c0;
+  border-radius: 0.875rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sg-modal-details-review {
+  background: #fef9e7;
+  border-color: #f0d875;
+}
+
+.sg-modal-detail-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--color-text-secondary, #4A4A4A);
+}
+
+.sg-modal-detail-row i {
+  color: var(--color-primary, #8FCE00);
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* ── Reference number box ── */
+.sg-modal-ref-box {
+  background: #f7fbef;
+  border: 1.5px dashed var(--color-primary, #8FCE00);
+  border-radius: 0.875rem;
+  padding: 0.875rem 1rem;
+  margin-bottom: 0.875rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.sg-modal-ref-box-review {
+  background: #fef9e7;
+  border-color: #f0d875;
+}
+
+.sg-modal-ref-label {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 600;
+  color: var(--color-text-muted, #7A7A7A);
+}
+
+.sg-modal-ref-number {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  color: var(--color-primary, #8FCE00);
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.sg-modal-ref-review {
+  color: #b8860b;
+}
+
+.sg-modal-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--color-primary, #8FCE00);
+  border: 1px solid var(--color-primary, #8FCE00);
+  border-radius: 999px;
+  padding: 0.2rem 0.65rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.sg-modal-copy-btn:hover {
+  background: var(--color-primary, #8FCE00);
+  color: #fff;
+}
+
+.sg-modal-copy-review {
+  color: #b8860b;
+  border-color: #b8860b;
+}
+
+.sg-modal-copy-review:hover {
+  background: #b8860b;
+  color: #fff;
+}
+
+/* ── Stars display (review modal) ── */
+.sg-modal-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+  font-size: 1.75rem;
+}
+
+.sg-modal-star-filled {
+  color: #f59e0b;
+}
+
+.sg-modal-star-empty {
+  color: #d1d5db;
+}
+
+/* ── Note ── */
+.sg-modal-note {
+  font-size: 0.75rem;
+  color: var(--color-text-muted, #7A7A7A);
+  line-height: 1.5;
+  margin-bottom: 1.25rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  text-align: left;
+}
+
+.sg-modal-note i {
+  flex-shrink: 0;
+  margin-top: 0.1rem;
+}
+
+/* ── Actions ── */
+.sg-modal-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.sg-modal-btn-primary,
+.sg-modal-btn-secondary {
+  flex: 1;
+  min-width: 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
+
+.sg-modal-btn-primary {
+  background: var(--color-primary, #8FCE00);
+  color: #1F2933;
+  border: 2px solid var(--color-primary, #8FCE00);
+}
+
+.sg-modal-btn-primary:hover {
+  background: var(--color-primary-hover, #6FA800);
+  border-color: var(--color-primary-hover, #6FA800);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(143, 206, 0, 0.35);
+}
+
+.sg-modal-btn-review-primary {
+  background: #f59e0b;
+  color: #1F2933;
+  border-color: #f59e0b;
+}
+
+.sg-modal-btn-review-primary:hover {
+  background: #d97706;
+  border-color: #d97706;
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.35);
+}
+
+.sg-modal-btn-secondary {
+  background: transparent;
+  color: var(--color-text-primary, #1F2933);
+  border: 2px solid var(--color-border, #E2E8C0);
+}
+
+.sg-modal-btn-secondary:hover {
+  background: var(--color-background, #F7FBEF);
+  border-color: #c5d48a;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 380px) {
+  .sg-modal-card {
+    padding: 1.5rem 1.25rem;
+  }
+  .sg-modal-actions {
+    flex-direction: column;
+  }
+}

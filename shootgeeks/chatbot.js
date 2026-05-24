@@ -136,7 +136,7 @@
     const bubble = document.createElement("div");
     bubble.classList.add("chatbot-bubble");
     if (role === "bot") {
-      bubble.innerHTML = text;
+      bubble.innerHTML = sanitizeBotHtml(text);
     } else {
       bubble.textContent = text;
     }
@@ -144,6 +144,35 @@
 
     chatMessages.appendChild(wrapper);
     chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
+
+
+  function sanitizeBotHtml(html) {
+    const template = document.createElement("template");
+    template.innerHTML = html;
+
+    const allowedTags = new Set(["STRONG", "EM", "BR", "UL", "OL", "LI", "P"]);
+
+    const walker = document.createTreeWalker(template.content, NodeFilter.SHOW_ELEMENT);
+    const toReplace = [];
+
+    while (walker.nextNode()) {
+      const el = walker.currentNode;
+
+      if (!allowedTags.has(el.tagName)) {
+        toReplace.push(el);
+        continue;
+      }
+
+      [...el.attributes].forEach(attr => el.removeAttribute(attr.name));
+    }
+
+    toReplace.forEach(el => {
+      const textNode = document.createTextNode(el.textContent || "");
+      el.replaceWith(textNode);
+    });
+
+    return template.innerHTML;
   }
 
   // --- System Message (for session ended timestamp) ---

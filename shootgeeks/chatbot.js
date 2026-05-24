@@ -107,9 +107,6 @@ Remember, I'm here to help you with any questions about ShootGeeks' services, pa
   const WELCOME_MESSAGE =
     "👋 Welcome to ShootGeeks! I'm your virtual assistant, GeekTalk. I can help you with our services, photographers, booking a session, and more. How can I help you today?";
 
-  // ⬇️ CHOOSE YOUR GEMINI MODEL ⬇️
-  const MODEL = "gemini-2.5-flash";
-
   // Google Gemini OpenAI-compatible endpoint
   // Our new secure local backend endpoint
   const API_URL = "/api/chat";
@@ -364,11 +361,7 @@ Remember, I'm here to help you with any questions about ShootGeeks' services, pa
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          model: MODEL,
-          messages: [
-            { role: "system", content: SYSTEM_PROMPT },
-            ...conversationHistory,
-          ],
+          messages: conversationHistory,
         }),
       });
 
